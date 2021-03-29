@@ -25,7 +25,37 @@
   <main>
     <div class="container">
       <div class="row" data-view="entry-form">
-
+        <div class="title column-full">
+          <h1>New Entry</h1>
+        </div>
+        <form action="">
+          <div class="column-half">
+            <img src="images/placeholder-image-square.jpg" alt="your image here">
+          </div>
+          <div class="column-half">
+            <div>
+              <div>
+                <label for="enter-title">Title</label>
+              </div>
+              <input type="text" id="enter-title">
+            </div>
+            <div>
+              <div>
+                <label for="enter-photo-url">Photo URL</label>
+              </div>
+              <input type="url" id="enter-photo-url">
+            </div>
+          </div>
+          <div class="column-full">
+            <div>
+              <label for="enter-notes">Notes</label>
+            </div>
+            <textarea name="" id="enter-notes" cols="30" rows="10"></textarea>
+          </div>
+          <div class="column-full">
+            <button>SAVE</button>
+          </div>
+        </form>
       </div>
     </div>
   </main>
