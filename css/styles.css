@@ -29,6 +29,9 @@ a.nav-bar {
 
 img {
   width: 100%;
+  object-fit: cover;
+  object-position: 50%, 50%;
+  aspect-ratio: 1 / 1;
 }
 
 input,
