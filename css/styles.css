@@ -37,6 +37,7 @@ textarea {
   padding: 10px;
   border: #b9b9b9 thin solid;
   border-radius: 4px;
+  font-weight: 600;
 }
 
 input {
