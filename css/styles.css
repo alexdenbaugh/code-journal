@@ -15,10 +15,6 @@ main {
   color: white;
 }
 
-.jet-text {
-  color: #3b3b3b;
-}
-
 label {
   font-weight: 600;
 }
@@ -30,7 +26,6 @@ a.nav-bar {
 img {
   width: 100%;
   object-fit: cover;
-  object-position: 50%, 50%;
   aspect-ratio: 1 / 1;
 }
 
@@ -62,7 +57,7 @@ form {
 }
 
 div.form-entries-title > div {
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 
 div.form-entries > div {
@@ -75,16 +70,14 @@ div.button {
 }
 
 button {
-  font-weight: 500;
-  color: white;
   background-color: #562b81;
   border: #562b81 thin solid;
   border-radius: 5px;
   padding: 2px 15px;
-  margin: 0;
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+button:focus {
   outline-color: #562b81;
 }
