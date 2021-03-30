@@ -13,6 +13,8 @@ $formEnterNew.addEventListener('input', function () {
   $newImgURL.setAttribute('src', $inputURL);
 });
 
+var nextEntryId = 0;
+
 $formEnterNew.addEventListener('submit', function () {
   event.preventDefault();
   if (event.submitter.getAttribute('data-view') !== 'saveEntry') {
@@ -22,4 +24,6 @@ $formEnterNew.addEventListener('submit', function () {
   formObject.title = $formEnterNew.elements.title.value;
   formObject.url = $formEnterNew.elements.url.value;
   formObject.notes = $formEnterNew.elements.notes.value;
+  formObject.entryId = nextEntryId;
+  // nextEntryId++;
 });
