@@ -25,4 +25,5 @@ $formEnterNew.addEventListener('submit', function () {
   formObject.entryId = data.nextEntryId;
   data.nextEntryId++;
   data.entries.push(formObject);
+  $newImgURL.setAttribute('src', 'images/placeholder-image-square.jpg');
 });
