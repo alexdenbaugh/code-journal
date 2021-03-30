@@ -12,3 +12,14 @@ $formEnterNew.addEventListener('input', function () {
   var $inputURL = $formEnterNew.elements.url.value;
   $newImgURL.setAttribute('src', $inputURL);
 });
+
+$formEnterNew.addEventListener('submit', function () {
+  event.preventDefault();
+  if (event.submitter.getAttribute('data-view') !== 'saveEntry') {
+    return;
+  }
+  var formObject = {};
+  formObject.title = $formEnterNew.elements.title.value;
+  formObject.url = $formEnterNew.elements.url.value;
+  formObject.notes = $formEnterNew.elements.notes.value;
+});
