@@ -35,7 +35,8 @@ input,
 textarea {
   width: 100%;
   padding: 10px;
-  border: #3b3b3b 0 solid;
+  border: #b9b9b9 thin solid;
+  border-radius: 4px;
 }
 
 input {
@@ -81,5 +82,5 @@ button {
 
 input:focus,
 textarea:focus {
-  border: none;
+  outline-color: #562b81;
 }
