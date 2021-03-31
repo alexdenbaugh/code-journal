@@ -78,3 +78,9 @@ var $entriesAnchor = document.querySelector('#entries-anchor');
 $entriesAnchor.addEventListener('click', function () {
   changeView('entries');
 });
+
+var $newEntryButton = document.querySelector('button.entries-title-bar');
+
+$newEntryButton.addEventListener('click', function () {
+  changeView('entry-form');
+});
