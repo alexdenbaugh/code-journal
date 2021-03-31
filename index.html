@@ -18,21 +18,22 @@
   <header>
     <div class="container">
       <div class="column-full">
-        <a href="" class="nav-bar font white-text">Code Journal</a>
+        <a href="#" class="nav-bar font white-text title">Code Journal</a>
+        <a href="#" class="nav-bar font white-text">Entries</a>
       </div>
     </div>
   </header>
   <main>
     <div class="container">
-      <div class="row" data-view="entry-form">
-        <div class="title column-full">
+      <div class="row hidden" data-view="entry-form">
+        <div class="column-full">
           <h1 class="font">New Entry</h1>
         </div>
         <form class="new-entry" action="">
-          <div class="column-half column new-image">
+          <div class="column-half new-image">
             <img src="images/placeholder-image-square.jpg" alt="your image here">
           </div>
-          <div class="column-half column">
+          <div class="column-half">
             <div class="form-entries-title">
               <div>
                 <label for="enter-title" class="font">Title</label>
@@ -58,20 +59,61 @@
         </form>
       </div>
       <div class="row" data-view="entries">
-        <div class="title column-full">
+        <div class="column-full entries-title-bar">
           <div>
-            <h1 class="font">Entries</h1>
+            <h1 class="font entries-title-bar">Entries</h1>
           </div>
           <div>
-            <button name="new" class="font white-text">NEW</button>
+            <button name="new" class="font white-text entries-title-bar">NEW</button>
           </div>
         </div>
-        <ul>
-          <li>
-
+        <div class="column-full">
+          <div class="no-entries-prompt">
+            <p class="font">No entries have been recorded.</p>
+          </div>
+        </div>
+        <ul class="hidden">
+          <li class="row">
+            <div class="column-half new-image">
+              <img src="images/placeholder-image-square.jpg" alt="">
+            </div>
+            <div  class="column-half">
+              <div>
+                <h2 class="font">Ada Lovelace</h2>
+              </div>
+              <div>
+                <p class="font">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex enim impedit omnis at quisquam et sunt iusto aspernatur neque nobis, in quam saepe distinctio natus assumenda libero provident ad aperiam!</p>
+              </div>
+            </div>
           </li>
-          <li></li>
-          <li></li>
+          <li class="row">
+            <div class="column-half new-image">
+              <img src="images/placeholder-image-square.jpg" alt="">
+            </div>
+            <div class="column-half">
+              <div>
+                <h2 class="font">Ada Lovelace</h2>
+              </div>
+              <div>
+                <p class="font">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex enim impedit omnis at quisquam et sunt iusto
+                  aspernatur neque nobis, in quam saepe distinctio natus assumenda libero provident ad aperiam!</p>
+              </div>
+            </div>
+          </li>
+          <li class="row">
+            <div class="column-half new-image">
+              <img src="images/placeholder-image-square.jpg" alt="">
+            </div>
+            <div class="column-half">
+              <div>
+                <h2 class="font">Ada Lovelace</h2>
+              </div>
+              <div>
+                <p class="font">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex enim impedit omnis at quisquam et sunt iusto
+                  aspernatur neque nobis, in quam saepe distinctio natus assumenda libero provident ad aperiam!</p>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
     </div>
