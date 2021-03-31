@@ -21,8 +21,8 @@ $formEnterNew.addEventListener('submit', function () {
   data.entries.unshift(formObject);
   $newImgURL.setAttribute('src', 'images/placeholder-image-square.jpg');
   $formEnterNew.reset();
-  // var $ul = document.querySelector('ul');
-  // $ul.prepend(addEntry(formObject))
+  var $ul = document.querySelector('ul');
+  $ul.prepend(addEntry(formObject));
 });
 
 function addEntry(entry) {
