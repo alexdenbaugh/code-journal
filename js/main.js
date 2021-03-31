@@ -84,3 +84,13 @@ var $newEntryButton = document.querySelector('button.entries-title-bar');
 $newEntryButton.addEventListener('click', function () {
   changeView('entry-form');
 });
+
+if (data.entries.length === 0) {
+  var $ul = document.querySelector('ul');
+  var $noEntriesDiv = document.querySelector('#no-entries-prompt');
+  $ul.className = 'hidden';
+  $noEntriesDiv.className = '';
+} else {
+  $ul.className = '';
+  $noEntriesDiv.className = 'hidden';
+}
