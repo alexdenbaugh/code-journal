@@ -3,6 +3,7 @@
 
 var $formEnterNew = document.querySelector('.new-entry');
 var $newImgURL = $formEnterNew.querySelector('img');
+var $ul = document.querySelector('ul');
 
 $formEnterNew.addEventListener('input', function () {
   event.preventDefault();
@@ -11,8 +12,16 @@ $formEnterNew.addEventListener('input', function () {
 });
 
 var $views = document.querySelectorAll('.view');
+var $noEntriesDiv = document.querySelector('#no-entries-prompt');
 
 function changeView(dataView) {
+  if (data.entries.length === 0) {
+    $ul.className = 'hidden';
+    $noEntriesDiv.className = '';
+  } else {
+    $ul.className = '';
+    $noEntriesDiv.className = 'hidden';
+  }
   for (var i = 0; i < $views.length; i++) {
     if ($views[i].getAttribute('data-view') === dataView) {
       $views[i].className = 'row view';
@@ -33,7 +42,6 @@ $formEnterNew.addEventListener('submit', function () {
   data.entries.unshift(formObject);
   $newImgURL.setAttribute('src', 'images/placeholder-image-square.jpg');
   $formEnterNew.reset();
-  var $ul = document.querySelector('ul');
   $ul.prepend(addEntry(formObject));
   changeView('entries');
 });
@@ -67,30 +75,14 @@ function addEntry(entry) {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-  var $ulElement = document.querySelector('ul');
   for (var i = 0; i < data.entries.length; i++) {
-    $ulElement.appendChild(addEntry(data.entries[i]));
+    $ul.appendChild(addEntry(data.entries[i]));
   }
 });
 
-var $entriesAnchor = document.querySelector('#entries-anchor');
-
-$entriesAnchor.addEventListener('click', function () {
-  changeView('entries');
+document.addEventListener('click', function () {
+  if (!event.target.classList.contains('view-changer')) {
+    return;
+  }
+  changeView(event.target.getAttribute('data-view'));
 });
-
-var $newEntryButton = document.querySelector('button.entries-title-bar');
-
-$newEntryButton.addEventListener('click', function () {
-  changeView('entry-form');
-});
-
-if (data.entries.length === 0) {
-  var $ul = document.querySelector('ul');
-  var $noEntriesDiv = document.querySelector('#no-entries-prompt');
-  $ul.className = 'hidden';
-  $noEntriesDiv.className = '';
-} else {
-  $ul.className = '';
-  $noEntriesDiv.className = 'hidden';
-}
