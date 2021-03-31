@@ -19,13 +19,13 @@
     <div class="container">
       <div class="column-full">
         <a href="#" class="nav-bar font white-text title">Code Journal</a>
-        <a href="#" class="nav-bar font white-text">Entries</a>
+        <a href="#" class="nav-bar font white-text" id="entries-anchor">Entries</a>
       </div>
     </div>
   </header>
   <main>
     <div class="container">
-      <div class="row" data-view="entry-form">
+      <div class="row view" data-view="entry-form">
         <div class="column-full">
           <h1 class="font">New Entry</h1>
         </div>
@@ -58,7 +58,7 @@
           </div>
         </form>
       </div>
-      <div class="row" data-view="entries">
+      <div class="row view hidden" data-view="entries">
         <div class="column-full entries-title-bar">
           <div>
             <h1 class="font entries-title-bar">Entries</h1>
@@ -68,7 +68,7 @@
           </div>
         </div>
         <div class="column-full">
-          <div class="no-entries-prompt hidden">
+          <div class="hidden" id="no-entries-prompt">
             <p class="font">No entries have been recorded.</p>
           </div>
         </div>

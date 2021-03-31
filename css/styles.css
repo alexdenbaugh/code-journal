@@ -125,6 +125,6 @@ p {
   padding: 0 0 10px;
 }
 
-div.no-entries-prompt {
+div#no-entries-prompt {
   text-align: center;
 }
