@@ -10,6 +10,18 @@ $formEnterNew.addEventListener('input', function () {
   $newImgURL.setAttribute('src', $inputURL);
 });
 
+var $views = document.querySelectorAll('.view');
+
+function changeView(dataView) {
+  for (var i = 0; i < $views.length; i++) {
+    if ($views[i].getAttribute('data-view') === dataView) {
+      $views[i].className = 'row view';
+    } else {
+      $views[i].className = 'row view hidden';
+    }
+  }
+}
+
 $formEnterNew.addEventListener('submit', function () {
   event.preventDefault();
   var formObject = {};
@@ -23,6 +35,7 @@ $formEnterNew.addEventListener('submit', function () {
   $formEnterNew.reset();
   var $ul = document.querySelector('ul');
   $ul.prepend(addEntry(formObject));
+  changeView('entries');
 });
 
 function addEntry(entry) {
@@ -61,14 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 var $entriesAnchor = document.querySelector('#entries-anchor');
-var $views = document.querySelectorAll('.view');
 
 $entriesAnchor.addEventListener('click', function () {
-  for (var i = 0; i < $views.length; i++) {
-    if ($views[i].getAttribute('data-view') === 'entries') {
-      $views[i].className = 'row view';
-    } else {
-      $views[i].className = 'row view hidden';
-    }
-  }
+  changeView('entries');
 });
