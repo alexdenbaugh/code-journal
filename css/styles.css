@@ -1,0 +1,87 @@
+header {
+  background-color: #562b81;
+  padding: 10px 0;
+}
+
+main {
+  background-color: #f0f0f0;
+}
+
+.font {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.white-text {
+  color: white;
+}
+
+label {
+  font-weight: 600;
+}
+
+a.nav-bar {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: #b9b9b9 thin solid;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+input {
+  height: 30px;
+}
+
+textarea {
+  resize: none;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-entries {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.new-image {
+  padding-bottom: 10px;
+}
+
+div.form-entries-title > div {
+  padding-bottom: 5px;
+}
+
+div.form-entries > div {
+  padding: 5px 0;
+}
+
+div.button {
+  text-align: right;
+  padding-bottom: 10px;
+}
+
+button {
+  background-color: #562b81;
+  border: #562b81 thin solid;
+  border-radius: 5px;
+  padding: 2px 15px;
+}
+
+input:focus,
+textarea:focus,
+button:focus {
+  outline-color: #562b81;
+}
