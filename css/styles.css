@@ -102,14 +102,6 @@ div.entries-title-bar {
   align-items: center;
 }
 
-div.entries-title-bar > div {
-  width: fit-content;
-}
-
-button.entries-title-bar {
-  text-align: right;
-}
-
 ul {
   margin: 0;
   padding: 0;
