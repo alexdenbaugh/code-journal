@@ -120,5 +120,7 @@ $formEditEntry.addEventListener('submit', function () {
   data.entries[data.entries.length - data.editing.entryId].title = $formEditEntry.elements.title.value;
   data.entries[data.entries.length - data.editing.entryId].url = $formEditEntry.elements.url.value;
   data.entries[data.entries.length - data.editing.entryId].notes = $formEditEntry.elements.notes.value;
+  var $liList = $ul.querySelectorAll('li');
+  $liList[data.entries.length - data.editing.entryId].replaceWith(addEntry(data.editing));
   changeView('entries');
 });
