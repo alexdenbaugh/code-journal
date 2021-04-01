@@ -75,7 +75,7 @@ function addEntry(entry) {
   $divNotes.appendChild($pNotes);
   $divTitleAndNotes.appendChild($divNotes);
   $li.appendChild($divTitleAndNotes);
-  $li.setAttribute('data-view', 'data-entry-id');
+  $li.setAttribute('data-view', 'data-entry-' + entry.entryId);
   return $li;
 }
 
@@ -90,4 +90,8 @@ document.addEventListener('click', function (event) {
     return;
   }
   changeView(event.target.getAttribute('data-view'));
+});
+
+$ul.addEventListener('click', function (event) {
+  return 'test';
 });
