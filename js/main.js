@@ -114,3 +114,11 @@ $formEditEntry.addEventListener('input', function () {
   var $editImgURL = $formEditEntry.elements.url.value;
   $editImg.setAttribute('src', $editImgURL);
 });
+
+$formEditEntry.addEventListener('submit', function () {
+  event.preventDefault();
+  data.entries[data.entries.length - data.editing.entryId].title = $formEditEntry.elements.title.value;
+  data.entries[data.entries.length - data.editing.entryId].url = $formEditEntry.elements.url.value;
+  data.entries[data.entries.length - data.editing.entryId].notes = $formEditEntry.elements.notes.value;
+  changeView('entries');
+});
