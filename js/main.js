@@ -93,5 +93,8 @@ document.addEventListener('click', function (event) {
 });
 
 $ul.addEventListener('click', function (event) {
-  return 'test';
+  if (event.target.nodeName !== 'I') {
+    return;
+  }
+  changeView('edit-entry');
 });

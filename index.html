@@ -89,6 +89,39 @@
           </li>
         </ul>
       </div>
+      <div class="row view" data-view="edit-entry">
+        <div class="column-full">
+          <h1 class="font">Edit Entry</h1>
+        </div>
+        <form class="edit-entry" action="">
+          <div class="column-half new-image">
+            <img src="images/placeholder-image-square.jpg" alt="your image here">
+          </div>
+          <div class="column-half">
+            <div class="form-entries-title">
+              <div>
+                <label for="edit-title" class="font">Title</label>
+              </div>
+              <input required name="title" type="text" id="edit-title" class="font">
+            </div>
+            <div class="form-entries">
+              <div>
+                <label for="edit-photo-url" class="font">Photo URL</label>
+              </div>
+              <input required name="url" type="url" id="edit-photo-url" class="font">
+            </div>
+          </div>
+          <div class="column-full form-entries">
+            <div>
+              <label for="edit-notes" class="font">Notes</label>
+            </div>
+            <textarea required name="notes" id="edit-notes" cols="30" rows="8" class="font"></textarea>
+          </div>
+          <div class="column-full button">
+            <button name="save" class="font white-text">SAVE</button>
+          </div>
+        </form>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
