@@ -35,22 +35,25 @@ var $h1NewAndEditEntry = document.querySelector('#new-edit-entry');
 
 $formEnterNew.addEventListener('submit', function () {
   event.preventDefault();
+  var formObject = {};
+  formObject.title = $formEnterNew.elements.title.value;
+  formObject.url = $formEnterNew.elements.url.value;
+  formObject.notes = $formEnterNew.elements.notes.value;
   if ($h1NewAndEditEntry.textContent === 'Edit Entry') {
-    data.entries[data.entries.length - data.editing.entryId].title = $formEnterNew.elements.title.value;
-    data.entries[data.entries.length - data.editing.entryId].url = $formEnterNew.elements.url.value;
-    data.entries[data.entries.length - data.editing.entryId].notes = $formEnterNew.elements.notes.value;
-    var $liList = $ul.querySelectorAll('li');
-    $liList[data.entries.length - data.editing.entryId].replaceWith(addEntry(data.editing));
+    formObject.entryId = data.editing.entryId;
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === data.editing.entryId) {
+        data.entries[i].title = $formEnterNew.elements.title.value;
+        data.entries[i].url = $formEnterNew.elements.url.value;
+        data.entries[i].notes = $formEnterNew.elements.notes.value;
+      }
+    }
+    $liTarget.replaceWith(addEntry(formObject));
     $h1NewAndEditEntry.textContent = 'New Entry';
   } else {
-    var formObject = {};
-    formObject.title = $formEnterNew.elements.title.value;
-    formObject.url = $formEnterNew.elements.url.value;
-    formObject.notes = $formEnterNew.elements.notes.value;
     formObject.entryId = data.nextEntryId;
     data.nextEntryId++;
     data.entries.unshift(formObject);
-
     $ul.prepend(addEntry(formObject));
   }
   $newImgURL.setAttribute('src', 'images/placeholder-image-square.jpg');
@@ -109,14 +112,21 @@ document.addEventListener('click', function (event) {
   }
 });
 
+var $liTarget;
+
 $ul.addEventListener('click', function (event) {
   if (event.target.nodeName !== 'I') {
     return;
   }
   changeView('entry-form');
   $h1NewAndEditEntry.textContent = 'Edit Entry';
-  var $liEntryID = event.path[3].getAttribute('data-entry-id');
-  data.editing = data.entries[data.entries.length - Number($liEntryID)];
+  $liTarget = event.target.closest('li');
+  var $liEntryID = $liTarget.getAttribute('data-entry-id');
+  for (var i = 0; i < data.entries.length; i++) {
+    if (Number($liEntryID) === data.entries[i].entryId) {
+      data.editing = data.entries[i];
+    }
+  }
   $formEnterNew.elements.title.value = data.editing.title;
   $formEnterNew.elements.url.value = data.editing.url;
   $formEnterNew.elements.notes.value = data.editing.notes;
