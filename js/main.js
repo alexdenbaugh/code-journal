@@ -100,4 +100,5 @@ $ul.addEventListener('click', function (event) {
   var $liEntryID = event.path[3].getAttribute('data-view');
   var $IDNumber = $liEntryID.substring(11);
   data.editing = data.entries[data.entries.length - Number($IDNumber)];
+
 });
