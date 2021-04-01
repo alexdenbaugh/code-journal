@@ -31,18 +31,30 @@ function changeView(dataView) {
   }
 }
 
+var $h1NewAndEditEntry = document.querySelector('#new-edit-entry');
+
 $formEnterNew.addEventListener('submit', function () {
   event.preventDefault();
-  var formObject = {};
-  formObject.title = $formEnterNew.elements.title.value;
-  formObject.url = $formEnterNew.elements.url.value;
-  formObject.notes = $formEnterNew.elements.notes.value;
-  formObject.entryId = data.nextEntryId;
-  data.nextEntryId++;
-  data.entries.unshift(formObject);
+  if ($h1NewAndEditEntry.textContent === 'Edit Entry') {
+    data.entries[data.entries.length - data.editing.entryId].title = $formEnterNew.elements.title.value;
+    data.entries[data.entries.length - data.editing.entryId].url = $formEnterNew.elements.url.value;
+    data.entries[data.entries.length - data.editing.entryId].notes = $formEnterNew.elements.notes.value;
+    var $liList = $ul.querySelectorAll('li');
+    $liList[data.entries.length - data.editing.entryId].replaceWith(addEntry(data.editing));
+    $h1NewAndEditEntry.textContent = 'New Entry';
+  } else {
+    var formObject = {};
+    formObject.title = $formEnterNew.elements.title.value;
+    formObject.url = $formEnterNew.elements.url.value;
+    formObject.notes = $formEnterNew.elements.notes.value;
+    formObject.entryId = data.nextEntryId;
+    data.nextEntryId++;
+    data.entries.unshift(formObject);
+
+    $ul.prepend(addEntry(formObject));
+  }
   $newImgURL.setAttribute('src', 'images/placeholder-image-square.jpg');
   $formEnterNew.reset();
-  $ul.prepend(addEntry(formObject));
   changeView('entries');
 });
 
@@ -75,7 +87,7 @@ function addEntry(entry) {
   $divNotes.appendChild($pNotes);
   $divTitleAndNotes.appendChild($divNotes);
   $li.appendChild($divTitleAndNotes);
-  $li.setAttribute('data-view', 'data-entry-' + entry.entryId);
+  $li.setAttribute('data-entry-id', entry.entryId);
   return $li;
 }
 
@@ -90,37 +102,23 @@ document.addEventListener('click', function (event) {
     return;
   }
   changeView(event.target.getAttribute('data-view'));
+  if (event.target.innerText === 'NEW') {
+    $newImgURL.setAttribute('src', 'images/placeholder-image-square.jpg');
+    $formEnterNew.reset();
+    $h1NewAndEditEntry.textContent = 'New Entry';
+  }
 });
-
-var $formEditEntry = document.querySelector('.edit-entry');
-var $editImg = document.querySelector('#edit-img');
 
 $ul.addEventListener('click', function (event) {
   if (event.target.nodeName !== 'I') {
     return;
   }
-  changeView('edit-entry');
-  var $liEntryID = event.path[3].getAttribute('data-view');
-  var $IDNumber = $liEntryID.substring(11);
-  data.editing = data.entries[data.entries.length - Number($IDNumber)];
-  $formEditEntry.elements.title.value = data.editing.title;
-  $formEditEntry.elements.url.value = data.editing.url;
-  $formEditEntry.elements.notes.value = data.editing.notes;
-  $editImg.setAttribute('src', $formEditEntry.elements.url.value);
-});
-
-$formEditEntry.addEventListener('input', function () {
-  event.preventDefault();
-  var $editImgURL = $formEditEntry.elements.url.value;
-  $editImg.setAttribute('src', $editImgURL);
-});
-
-$formEditEntry.addEventListener('submit', function () {
-  event.preventDefault();
-  data.entries[data.entries.length - data.editing.entryId].title = $formEditEntry.elements.title.value;
-  data.entries[data.entries.length - data.editing.entryId].url = $formEditEntry.elements.url.value;
-  data.entries[data.entries.length - data.editing.entryId].notes = $formEditEntry.elements.notes.value;
-  var $liList = $ul.querySelectorAll('li');
-  $liList[data.entries.length - data.editing.entryId].replaceWith(addEntry(data.editing));
-  changeView('entries');
+  changeView('entry-form');
+  $h1NewAndEditEntry.textContent = 'Edit Entry';
+  var $liEntryID = event.path[3].getAttribute('data-entry-id');
+  data.editing = data.entries[data.entries.length - Number($liEntryID)];
+  $formEnterNew.elements.title.value = data.editing.title;
+  $formEnterNew.elements.url.value = data.editing.url;
+  $formEnterNew.elements.notes.value = data.editing.notes;
+  $newImgURL.setAttribute('src', $formEnterNew.elements.url.value);
 });
