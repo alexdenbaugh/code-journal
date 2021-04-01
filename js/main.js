@@ -75,6 +75,7 @@ function addEntry(entry) {
   $divNotes.appendChild($pNotes);
   $divTitleAndNotes.appendChild($divNotes);
   $li.appendChild($divTitleAndNotes);
+  $li.setAttribute('data-view', 'data-entry-id');
   return $li;
 }
 
