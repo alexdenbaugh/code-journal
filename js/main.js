@@ -59,10 +59,14 @@ function addEntry(entry) {
   var $divTitleAndNotes = document.createElement('div');
   $divTitleAndNotes.classList.add('column-half');
   var $divTitle = document.createElement('div');
+  $divTitle.setAttribute('class', 'entry-title');
   var $h2Title = document.createElement('h2');
   $h2Title.classList.add('font');
   $h2Title.textContent = entry.title;
+  var $icon = document.createElement('i');
+  $icon.setAttribute('class', 'fas fa-pen');
   $divTitle.appendChild($h2Title);
+  $divTitle.appendChild($icon);
   $divTitleAndNotes.appendChild($divTitle);
   var $divNotes = document.createElement('div');
   var $pNotes = document.createElement('p');
