@@ -92,6 +92,9 @@ document.addEventListener('click', function (event) {
   changeView(event.target.getAttribute('data-view'));
 });
 
+var $formEditEntry = document.querySelector('.edit-entry');
+var $editImg = document.querySelector('#edit-img');
+
 $ul.addEventListener('click', function (event) {
   if (event.target.nodeName !== 'I') {
     return;
@@ -100,5 +103,14 @@ $ul.addEventListener('click', function (event) {
   var $liEntryID = event.path[3].getAttribute('data-view');
   var $IDNumber = $liEntryID.substring(11);
   data.editing = data.entries[data.entries.length - Number($IDNumber)];
+  $formEditEntry.elements.title.value = data.editing.title;
+  $formEditEntry.elements.url.value = data.editing.url;
+  $formEditEntry.elements.notes.value = data.editing.notes;
+  $editImg.setAttribute('src', $formEditEntry.elements.url.value);
+});
 
+$formEditEntry.addEventListener('input', function () {
+  event.preventDefault();
+  var $editImgURL = $formEditEntry.elements.url.value;
+  $editImg.setAttribute('src', $editImgURL);
 });
