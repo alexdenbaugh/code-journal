@@ -159,8 +159,6 @@ a.delete-button {
   height: 200px;
   background-color: white;
   border-radius: 10px;
-  display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-content: center;
   padding: 10px;
@@ -194,5 +192,4 @@ div.modal-buttons {
 p.modal-prompt {
   text-align: center;
   font-weight: 800;
-  overflow-wrap: normal;
 }
