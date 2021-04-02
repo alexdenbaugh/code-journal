@@ -75,7 +75,11 @@ div.form-entries > div {
 }
 
 div.button {
-  text-align: right;
+  /* text-align: right;
+  position: relative; */
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   padding-bottom: 10px;
 }
 
@@ -132,4 +136,10 @@ i {
   top: 5px;
   color: #562b81;
   font-size: 1.5em;
+}
+
+a.delete-button {
+  color: #fd403f;
+
+  /* position: relative; */
 }
