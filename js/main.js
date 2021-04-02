@@ -100,16 +100,27 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+var $modalContainer = document.querySelector('.modal-container');
+
 document.addEventListener('click', function (event) {
   if (!event.target.classList.contains('view-changer')) {
     return;
   }
-  changeView(event.target.getAttribute('data-view'));
   if (event.target.innerText === 'NEW') {
     $newImgURL.setAttribute('src', 'images/placeholder-image-square.jpg');
     $formEnterNew.reset();
     $h1NewAndEditEntry.textContent = 'New Entry';
     $deleteButton.classList.add('hidden');
+    changeView(event.target.getAttribute('data-view'));
+  } else if (event.target.innerText === 'Delete Entry') {
+    $modalContainer.classList.remove('hidden');
+  } else if (event.target.innerText === 'CANCEL') {
+    $modalContainer.classList.add('hidden');
+  } else if (event.target.innerText === 'CONFIRM') {
+    changeView('entries');
+    $modalContainer.classList.add('hidden');
+  } else {
+    changeView(event.target.getAttribute('data-view'));
   }
 });
 
