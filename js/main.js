@@ -117,6 +117,12 @@ document.addEventListener('click', function (event) {
   } else if (event.target.innerText === 'CANCEL') {
     $modalContainer.classList.add('hidden');
   } else if (event.target.innerText === 'CONFIRM') {
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === data.editing.entryId) {
+        data.entries.splice(i, 1);
+        $liTarget.remove();
+      }
+    }
     changeView('entries');
     $modalContainer.classList.add('hidden');
   } else {
