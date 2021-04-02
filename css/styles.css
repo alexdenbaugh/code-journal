@@ -140,6 +140,32 @@ i {
 
 a.delete-button {
   color: #fd403f;
+}
 
-  /* position: relative; */
+.modal-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-window {
+  width: 80%;
+  height: 300px;
+  background-color: #b9b9b9;
+}
+
+.confirm-button {
+  background-color: #fd403f;
+  font-weight: 800;
+}
+
+.cancel-button {
+  background-color: #d4d3d5;
+  font-weight: 800;
 }
