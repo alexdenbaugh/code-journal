@@ -105,6 +105,7 @@ div.entries-title-bar {
 ul {
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 
 li {
@@ -119,4 +120,16 @@ p {
 
 div#no-entries-prompt {
   text-align: center;
+}
+
+.entry-title {
+  position: relative;
+}
+
+i {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  color: #562b81;
+  font-size: 1.5em;
 }
