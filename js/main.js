@@ -106,17 +106,17 @@ document.addEventListener('click', function (event) {
   if (!event.target.classList.contains('view-changer')) {
     return;
   }
-  if (event.target.innerText === 'NEW') {
+  if (event.target.getAttribute('data-button') === 'new') {
     $newImgURL.setAttribute('src', 'images/placeholder-image-square.jpg');
     $formEnterNew.reset();
     $h1NewAndEditEntry.textContent = 'New Entry';
     $deleteButton.classList.add('hidden');
-    changeView(event.target.getAttribute('data-view'));
-  } else if (event.target.innerText === 'Delete Entry') {
+    changeView('entry-form');
+  } else if (event.target.getAttribute('data-button') === 'delete-entry') {
     $modalContainer.classList.remove('hidden');
-  } else if (event.target.innerText === 'CANCEL') {
+  } else if (event.target.getAttribute('data-button') === 'cancel') {
     $modalContainer.classList.add('hidden');
-  } else if (event.target.innerText === 'CONFIRM') {
+  } else if (event.target.getAttribute('data-button') === 'confirm') {
     for (var i = 0; i < data.entries.length; i++) {
       if (data.entries[i].entryId === data.editing.entryId) {
         data.entries.splice(i, 1);
