@@ -75,7 +75,11 @@ div.form-entries > div {
 }
 
 div.button {
-  text-align: right;
+  /* text-align: right;
+  position: relative; */
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   padding-bottom: 10px;
 }
 
@@ -132,4 +136,60 @@ i {
   top: 5px;
   color: #562b81;
   font-size: 1.5em;
+}
+
+a.delete-button {
+  color: #fd403f;
+}
+
+.modal-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-window {
+  flex-basis: 50%;
+  height: 200px;
+  background-color: white;
+  border-radius: 10px;
+  justify-content: space-between;
+  align-content: center;
+  padding: 10px;
+}
+
+div.modal-prompt {
+  width: 100%;
+  height: 50%;
+}
+
+div.modal-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.confirm-button {
+  background-color: #fd403f;
+  font-weight: 800;
+  border-color: #fd403f;
+  font-size: 15px;
+}
+
+.cancel-button {
+  background-color: #d4d3d5;
+  font-weight: 800;
+  border-color: #d4d3d5;
+  font-size: 15px;
+}
+
+p.modal-prompt {
+  text-align: center;
+  font-weight: 800;
 }

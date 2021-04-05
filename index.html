@@ -25,6 +25,17 @@
   </header>
   <main>
     <div class="container">
+      <div class="modal-container hidden">
+        <div class="modal-window row">
+          <div class="modal-prompt">
+            <p class="modal-prompt font">Are you sure you want to delete this entry?</p>
+          </div>
+          <div class="modal-buttons">
+            <button class="cancel-button font view-changer" data-button="cancel">CANCEL</button>
+            <button class="confirm-button white-text font view-changer" data-button="confirm">CONFIRM</button>
+          </div>
+        </div>
+      </div>
       <div class="row view hidden" data-view="entry-form">
         <div class="column-full">
           <h1 class="font" id="new-edit-entry">New Entry</h1>
@@ -55,6 +66,7 @@
           </div>
           <div class="column-full button">
             <button name="save" class="font white-text">SAVE</button>
+            <a href="#" class="font delete-button hidden view-changer" data-button="delete-entry">Delete Entry</a>
           </div>
         </form>
       </div>
@@ -64,7 +76,7 @@
             <h1 class="font entries-title-bar">Entries</h1>
           </div>
           <div>
-            <button name="new" class="font white-text entries-title-bar view-changer" data-view="entry-form">NEW</button>
+            <button name="new" class="font white-text entries-title-bar view-changer" data-button="new">NEW</button>
           </div>
         </div>
         <div class="column-full">

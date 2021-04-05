@@ -100,30 +100,50 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
+var $modalContainer = document.querySelector('.modal-container');
+
 document.addEventListener('click', function (event) {
   if (!event.target.classList.contains('view-changer')) {
     return;
   }
-  changeView(event.target.getAttribute('data-view'));
-  if (event.target.innerText === 'NEW') {
+  if (event.target.getAttribute('data-button') === 'new') {
     $newImgURL.setAttribute('src', 'images/placeholder-image-square.jpg');
     $formEnterNew.reset();
     $h1NewAndEditEntry.textContent = 'New Entry';
+    $deleteButton.classList.add('hidden');
+    changeView('entry-form');
+  } else if (event.target.getAttribute('data-button') === 'delete-entry') {
+    $modalContainer.classList.remove('hidden');
+  } else if (event.target.getAttribute('data-button') === 'cancel') {
+    $modalContainer.classList.add('hidden');
+  } else if (event.target.getAttribute('data-button') === 'confirm') {
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === data.editing.entryId) {
+        data.entries.splice(i, 1);
+        $liTarget.remove();
+      }
+    }
+    changeView('entries');
+    $modalContainer.classList.add('hidden');
+  } else {
+    changeView(event.target.getAttribute('data-view'));
   }
 });
 
 var $liTarget;
+var $deleteButton = document.querySelector('.delete-button');
 
 $ul.addEventListener('click', function (event) {
   if (event.target.nodeName !== 'I') {
     return;
   }
   changeView('entry-form');
+  $deleteButton.classList.remove('hidden');
   $h1NewAndEditEntry.textContent = 'Edit Entry';
   $liTarget = event.target.closest('li');
-  var $liEntryID = $liTarget.getAttribute('data-entry-id');
+  var liEntryID = $liTarget.getAttribute('data-entry-id');
   for (var i = 0; i < data.entries.length; i++) {
-    if (Number($liEntryID) === data.entries[i].entryId) {
+    if (Number(liEntryID) === data.entries[i].entryId) {
       data.editing = data.entries[i];
     }
   }
